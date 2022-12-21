@@ -2,10 +2,11 @@
 #include <string>
 
 #include "../include/DataFilePrinter.h"
+#include "../include/DataFileReader.h"
 
 int main(int argc, char **argv)
 {
-    DataFilePrinter datafile_printer;
+    DataFilePrinter datafile_printer;    
 
     std::string file1_name = "file1.txt";
 
@@ -38,5 +39,35 @@ int main(int argc, char **argv)
     // Close all datafiles opened
     datafile_printer.CloseDataFiles();
 
+    DataFileReader datafile_reader;
+
+    // Open datafile
+    datafile_reader.AddDataFile(file1_name);
+
+    // Read file lines
+    std::vector<std::string> file1_lines = datafile_reader.ReadFromFile(file1_name);
+
+    // Print file lines
+    for (int line = 0; line < file1_lines.size(); line++)
+    {
+        std::cout << file1_lines[line] << "\n";
+    }    
+        
+    // Close all datafiles opened
+    datafile_reader.CloseDataFiles();
+
+    // Splitted file lines
+    std::vector<std::string> splitted_line;
+
+    // Print splitted file lines
+    for (int line = 0; line < file1_lines.size(); line++)
+    {
+        splitted_line = datafile_reader.SplitString(file1_lines[line]);
+        for (int element = 0; element < splitted_line.size(); element++)
+        {
+            std::cout << splitted_line[element] << "\n";
+        }
+    }    
+    
     return 0;
 }
