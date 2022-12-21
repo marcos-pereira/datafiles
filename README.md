@@ -5,7 +5,7 @@ The DataFilePrinter class is a C++ class that allow to create and open files and
 1. Clone the repository.
 2. Change to the repository home folder:
 ```
-cd ~/path_to_repo/datafileprinter
+cd ~/path_to_repo/datafiles
 ```
 3. Create a build folder and change to it:
 ```
