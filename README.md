@@ -1,6 +1,3 @@
-# datafileprinter
-The DataFilePrinter class is a C++ class that allow to create and open files and print data to them. 
-
 # Compiling and running
 1. Clone the repository.
 2. Change to the repository home folder:
@@ -26,7 +23,11 @@ make
 ```
 The result should be the creation of file1.txt and file2.txt with some example text written to it.
 
-# How to use the class DataFilePrinter
+
+# datafileprinter
+The DataFilePrinter class is a C++ class that allow to create and open files and print data to them. 
+
+## How to use the class DataFilePrinter
 1. Include the library to your code:
 ```
 #include "path_to_repo/include/DataFilePrinter.h"
@@ -57,7 +58,10 @@ datafile_printer.CloseDataFiles();
 ```
 Check the `main.cpp` under the `src` folder for a minimal example.
 
-# How to use the class DataFileReader
+# datafilereader
+The DataFileReader class is a C++ class that allow to open files and read data from them. 
+
+## How to use the class DataFileReader
 1. Include the library to your code:
 ```
 #include "path_to_repo/include/DataFileReader.h"
