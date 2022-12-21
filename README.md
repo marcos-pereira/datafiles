@@ -57,6 +57,32 @@ datafile_printer.CloseDataFiles();
 ```
 Check the `main.cpp` under the `src` folder for a minimal example.
 
+# How to use the class DataFileReader
+1. Include the library to your code:
+```
+#include "path_to_repo/include/DataFileReader.h"
+```
+2. Declare the object of the class:
+```
+DataFileReader datafile_reader;
+```
+3. Add the files you want to read from:
+```
+std::string file1 = "file1.txt";
+datafile_reader.AddDataFile(file1_name);
+...
+```
+4. Read file lines from file:
+```
+std::vector<std::string> file1_lines = datafile_reader.ReadFromFile(file1_name);
+...
+```
+5. After reading everything you need from the files, close them:
+```
+datafile_reader.CloseDataFiles();
+```
+Check the `main.cpp` under the `src` folder for a minimal example.
+
 
 
 
