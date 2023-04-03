@@ -46,6 +46,12 @@ void DataFilePrinter::AddDataFile(std::string filename)
 */
 void DataFilePrinter::WriteToFile(std::string filename, std::string text)
 {
+    if(!datafiles_[filename].is_open())
+    {
+        std::cerr << "\n\nDatafile " << filename <<  " did not open correctly!\n" << "\n";
+        throw std::exception();
+    }
+    
     datafiles_[filename] << text;
 }
 
