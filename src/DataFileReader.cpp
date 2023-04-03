@@ -65,6 +65,33 @@ std::vector<std::string> DataFileReader::ReadFromFile(std::string filename)
 }
 
 /**
+ * @brief Read text from CSV datafile.
+ * 
+ * @param filename Name of the file where the text will be written.
+ * @param text Text to be written to file.
+*/
+std::vector<std::string> DataFileReader::ReadFromCsvFile(std::string filename)
+{    
+    std::vector<std::string> file_lines;
+
+    if (datafiles_[filename].is_open())
+    {
+        std::string file_line;  
+        while(getline(datafiles_[filename], file_line, ','))
+        {
+            file_lines.push_back(file_line);           
+        }        
+    }
+    else
+    {
+        std::cerr << "File: " << filename << "\n";
+        throw std::runtime_error("File not opened correctly.");
+    }
+    
+    return file_lines;
+}
+
+/**
  * @brief Split string that contains strings separated by spaces.
  * 
  * @param string_to_split is the string to be splitted.

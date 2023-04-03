@@ -35,6 +35,7 @@ public:
     void AddDataFile(std::string filename);
     std::vector<std::string> ReadFromFile(std::string filename);
     std::vector<std::string> SplitString(std::string string_to_split);
+    std::vector<std::string> ReadFromCsvFile(std::string filename);
     void CloseDataFiles();
 };
 
