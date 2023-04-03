@@ -15,8 +15,16 @@ add_library(DataFileReader
 target_link_libraries(DataFileReader
 )
 
+add_library(CsvFilePrinter
+    src/CsvFilePrinter.cpp
+)
+
+target_link_libraries(CsvFilePrinter
+)
+
 add_executable(main src/main.cpp)
 target_link_libraries(main   
   DataFilePrinter  
   DataFileReader
+  CsvFilePrinter
 )
