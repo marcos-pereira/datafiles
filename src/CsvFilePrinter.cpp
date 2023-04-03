@@ -44,6 +44,8 @@ void CsvFilePrinter::WriteToFile(std::string filename, std::string text)
     }
 
     datafiles_[filename] << text;
+
+    datafiles_[filename].close();
 }
 
 /**
