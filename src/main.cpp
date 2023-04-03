@@ -12,9 +12,9 @@
 #include <iostream>
 #include <string>
 
-#include "../include/DataFilePrinter.h"
-#include "../include/DataFileReader.h"
-#include "../include/CsvFilePrinter.h"
+#include <DataFilePrinter/DataFilePrinter.h>
+#include <DataFileReader/DataFileReader.h>
+#include <CsvFilePrinter/CsvFilePrinter.h>
 
 int main(int argc, char **argv)
 {
