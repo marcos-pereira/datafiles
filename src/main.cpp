@@ -14,6 +14,7 @@
 
 #include "../include/DataFilePrinter.h"
 #include "../include/DataFileReader.h"
+#include "../include/CsvFilePrinter.h"
 
 int main(int argc, char **argv)
 {
@@ -45,7 +46,7 @@ int main(int argc, char **argv)
     text1_to_file2 += "\n";
 
     // Write string to datafile
-    datafile_printer.WriteToFile(file2_name, text1_to_file2);
+    datafile_printer.WriteToFile(file2_name, text1_to_file2);    
 
     // Close all datafiles opened
     datafile_printer.CloseDataFiles();
@@ -54,6 +55,7 @@ int main(int argc, char **argv)
 
     // Open datafile
     datafile_reader.AddDataFile(file1_name);
+    datafile_reader.AddDataFile(file2_name);
 
     // Read file lines
     std::vector<std::string> file1_lines = datafile_reader.ReadFromFile(file1_name);
@@ -62,7 +64,7 @@ int main(int argc, char **argv)
     for (int line = 0; line < file1_lines.size(); line++)
     {
         std::cout << file1_lines[line] << "\n";
-    }    
+    }        
         
     // Close all datafiles opened
     datafile_reader.CloseDataFiles();
@@ -80,5 +82,39 @@ int main(int argc, char **argv)
         }
     }    
     
+    // CSV File
+    CsvFilePrinter csv_file_printer;
+
+    std::string file3_csv_name = "file3.csv";
+    
+    // Create and open datafile
+    csv_file_printer.AddDataFile(file3_csv_name);
+
+    std::string text1_to_file3 = "My special variable 1,My special variable 2,My special variable 3,My special variable 4";    
+    text1_to_file3 += "\n";
+
+    // Write string to datafile
+    csv_file_printer.WriteToFile(file3_csv_name, text1_to_file3);
+
+    // Close all datafiles opened
+    csv_file_printer.CloseDataFiles();
+
+    DataFileReader datafile_reader2;
+
+    // Open datafile
+    datafile_reader2.AddDataFile(file3_csv_name);
+
+    // Read file lines
+    std::vector<std::string> file3_lines = datafile_reader2.ReadFromCsvFile(file3_csv_name);
+
+    // Print file lines
+    for (int line = 0; line < file3_lines.size(); line++)
+    {
+        std::cout << file3_lines[line] << "\n";
+    }        
+
+    // Close all datafiles opened
+    datafile_reader2.CloseDataFiles();
+
     return 0;
 }
