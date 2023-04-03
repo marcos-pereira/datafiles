@@ -96,6 +96,12 @@ int main(int argc, char **argv)
     // Write string to datafile
     csv_file_printer.WriteToFile(file3_csv_name, text1_to_file3);
 
+    std::string text2_to_file3 = "3.142,2.718,my value,my other value";    
+    text2_to_file3 += "\n";
+
+    // Write string to datafile
+    csv_file_printer.WriteToFile(file3_csv_name, text2_to_file3);
+
     // Close all datafiles opened
     csv_file_printer.CloseDataFiles();
 
