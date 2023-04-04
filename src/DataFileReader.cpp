@@ -74,6 +74,8 @@ std::vector<std::string> DataFileReader::ReadFromCsvFile(std::string filename)
 {    
     std::vector<std::string> file_lines;
 
+    datafiles_[filename].open(filename, std::ios::in);
+
     if (datafiles_[filename].is_open())
     {
         std::string file_line;  
@@ -84,9 +86,14 @@ std::vector<std::string> DataFileReader::ReadFromCsvFile(std::string filename)
     }
     else
     {
+        // Clear errors
+        datafiles_[filename].clear();
+        
         std::cerr << "File: " << filename << "\n";
         throw std::runtime_error("File not opened correctly.");
     }
+
+    datafiles_[filename].close();
     
     return file_lines;
 }
