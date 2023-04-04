@@ -21,7 +21,7 @@ public:
     virtual ~CsvFilePrinter();
 
     void AddDataFile(std::string filename);
-    void WriteToFile(std::string filename, std::string text);
+    void WriteToFile(std::string filename, std::string text, bool append = false);
     void CloseDataFiles();
 };
 

@@ -32,10 +32,18 @@ void CsvFilePrinter::AddDataFile(std::string filename)
  * 
  * @param filename Name of the file where the text will be written.
  * @param text Text to be written to file.
+ * @param append If desired to append to file set it to true.
 */
-void CsvFilePrinter::WriteToFile(std::string filename, std::string text)
+void CsvFilePrinter::WriteToFile(std::string filename, std::string text, bool append)
 {
-    datafiles_[filename].open(filename, std::ios::out | std::ios::app);
+    if (append)
+    {
+        datafiles_[filename].open(filename, std::ios::out | std::ios::app);
+    }
+    else
+    {
+        datafiles_[filename].open(filename, std::ios::out);
+    }
 
     if(!datafiles_[filename].is_open())
     {
