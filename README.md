@@ -22,7 +22,10 @@ make
 ./main
 ```
 The result should be the creation of file1.txt and file2.txt with some example text written to it.
-
+7. If you wish to install the libraries to your system:
+```
+sudo make install
+```
 
 # datafileprinter
 The DataFilePrinter class is a C++ class that allow to create and open files and print data to them. 
