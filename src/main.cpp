@@ -84,6 +84,7 @@ int main(int argc, char **argv)
     
     // CSV File
     CsvFilePrinter csv_file_printer;
+    bool append_to_csv_file = true;
 
     std::string file3_csv_name = "file3.csv";
     
@@ -94,13 +95,13 @@ int main(int argc, char **argv)
     text1_to_file3 += "\n";
 
     // Write string to datafile
-    csv_file_printer.WriteToFile(file3_csv_name, text1_to_file3);
+    csv_file_printer.WriteToFile(file3_csv_name, text1_to_file3, append_to_csv_file);
 
     std::string text2_to_file3 = "3.142,2.718,my value,my other value";    
     text2_to_file3 += "\n";
 
     // Write string to datafile
-    csv_file_printer.WriteToFile(file3_csv_name, text2_to_file3);
+    csv_file_printer.WriteToFile(file3_csv_name, text2_to_file3, append_to_csv_file);
 
     // Close all datafiles opened
     csv_file_printer.CloseDataFiles();
