@@ -44,8 +44,9 @@ void DataFilePrinter::AddDataFile(std::string filename)
  * @param filename Name of the file where the text will be written.
  * @param text Text to be written to file.
  * @param overwrite If true, then overwrite. If false, append.
+ * @param close If true, close file after writing to it. 
 */
-void DataFilePrinter::WriteToFile(std::string filename, std::string text, bool overwrite)
+void DataFilePrinter::WriteToFile(std::string filename, std::string text, bool overwrite, bool close)
 {
     if (!overwrite)
     {
@@ -56,6 +57,16 @@ void DataFilePrinter::WriteToFile(std::string filename, std::string text, bool o
         }
 
         datafiles_[filename] << text;
+
+        if (close)
+        {
+            datafiles_[filename].close();
+            if(datafiles_[filename].is_open())
+            {
+                std::cerr << "\n\nDatafile " << filename <<  " did not close correctly!\n" << "\n";
+                throw std::exception();
+            }
+        }
     }
     else
     {
@@ -67,6 +78,16 @@ void DataFilePrinter::WriteToFile(std::string filename, std::string text, bool o
             throw std::exception();
         }
         datafiles_[filename] << text;
+
+        if (close)
+        {
+            datafiles_[filename].close();
+            if(datafiles_[filename].is_open())
+            {
+                std::cerr << "\n\nDatafile " << filename <<  " did not close correctly!\n" << "\n";
+                throw std::exception();
+            }
+        }
     }
 }
 

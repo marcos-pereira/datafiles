@@ -32,7 +32,7 @@ public:
     virtual ~DataFilePrinter();
 
     void AddDataFile(std::string filename);
-    void WriteToFile(std::string filename, std::string text, bool overwrite = false);
+    void WriteToFile(std::string filename, std::string text, bool overwrite = false, bool close = false);
     void CloseDataFiles();
 };
 
