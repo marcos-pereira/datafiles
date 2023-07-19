@@ -48,6 +48,20 @@ int main(int argc, char **argv)
     // Write string to datafile
     datafile_printer.WriteToFile(file2_name, text1_to_file2);    
 
+    std::string file3_name = "file3.txt"; 
+
+    // Create and open datafile
+    datafile_printer.AddDataFile(file3_name);
+
+    std::string text_to_file3 = "This is my third datafile in overwrite mode!";
+    text_to_file3 += "\n";
+
+    // Write string to datafile
+    datafile_printer.WriteToFile(file3_name, text_to_file3);    
+
+    bool overwrite = true;
+    datafile_printer.WriteToFile(file3_name, std::string("Overwritten!"), overwrite);    
+
     // Close all datafiles opened
     datafile_printer.CloseDataFiles();
 
