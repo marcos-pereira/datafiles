@@ -7,6 +7,7 @@ add_library(DataFilePrinter
 
 target_link_libraries(DataFilePrinter
 )
+target_compile_options(DataFilePrinter PRIVATE -fPIC)
 
 add_library(DataFileReader 
     src/DataFileReader.cpp
@@ -14,6 +15,8 @@ add_library(DataFileReader
 
 target_link_libraries(DataFileReader 
 )
+target_compile_options(DataFilePrinter PRIVATE -fPIC)
+
 
 add_library(CsvFilePrinter
     src/CsvFilePrinter.cpp
@@ -21,6 +24,8 @@ add_library(CsvFilePrinter
 
 target_link_libraries(CsvFilePrinter 
 )
+target_compile_options(DataFilePrinter PRIVATE -fPIC)
+
 
 add_executable(main src/main.cpp)
 target_link_libraries(main   
